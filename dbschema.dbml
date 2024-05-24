@@ -1,0 +1,29 @@
+Table patrons {
+  library_card_number int [pk, increment]
+  email varchar(255) [unique, not null]
+  first_name varchar(255) [not null]
+  last_name varchar(255) [not null]
+  date_of_birth date [not null]
+}
+
+Table books {
+  book_id int [pk, increment]
+  title varchar(255) [not null]
+  author varchar(255) [not null]
+  publisher varchar(255)
+  publication_year year
+  isbn varchar(13) [unique, not null]
+  genre varchar(255)
+  language varchar(255)
+  status varchar(50) [not null]
+}
+
+Table rentals {
+  rental_id int [pk, increment]
+  library_card_number int [ref: > patrons.library_card_number, not null]
+  book_id int [ref: > books.book_id, not null]
+  rental_date date [not null]
+  return_date date
+  due_date date [not null]
+  status varchar(50) [not null]
+}
