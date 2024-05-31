@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "QTHMubm6S5wZkKmfkqEZ0dB4KqmK5kN2+eJAuSnw92GVeimX6atuoANwoviKxkq7CHRehl5tDTxdNQL/Fu9V6w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jswiderek\\Downloads\\University.WebAPI_Completed(1)\\University.WebAPI\\University.WebAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jswiderek\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\jswiderek\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\jswiderek\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\jswiderek\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\jswiderek\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\jswiderek\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
