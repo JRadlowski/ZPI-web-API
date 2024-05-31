@@ -1,12 +1,5 @@
 ﻿namespace University.WebAPI.Models
 {
-    public enum StatusOfBook
-    {
-        Available,
-        Borrowed,
-        Reserved,
-        OutOfStock
-    }
     public class Book
     {
         public int BookId { get; set; }

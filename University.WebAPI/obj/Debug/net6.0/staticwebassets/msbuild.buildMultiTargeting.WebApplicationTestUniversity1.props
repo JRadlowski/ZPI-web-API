@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\WebApplicationTestUniversity1.props" />
-</Project>
