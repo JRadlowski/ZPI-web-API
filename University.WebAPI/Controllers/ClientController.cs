@@ -12,7 +12,7 @@ namespace University.WebAPI.Controllers
         [HttpGet]
         public IEnumerable<ClientDto> Get()
         {
-            var clients = ClientStore.Clients;
+            var clients = ClientStore.Elements;
 
             List<ClientDto> result = new List<ClientDto>();
             foreach (var client in clients)
@@ -39,7 +39,7 @@ namespace University.WebAPI.Controllers
                 return BadRequest();
             }
 
-            var client = ClientStore.Clients
+            var client = ClientStore.Elements
                 .FirstOrDefault(s => s.ClientId == id);
 
             if (client == null)
@@ -68,7 +68,7 @@ namespace University.WebAPI.Controllers
                 return BadRequest();
             }
 
-            var id = ClientStore.Clients.Max(c => c.ClientId) + 1;
+            var id = ClientStore.Elements.Max(c => c.ClientId) + 1;
 
             var client = new Client()
             {
@@ -77,7 +77,7 @@ namespace University.WebAPI.Controllers
                 LastName = dto.LastName,
                 Email = dto.Email
             };
-            ClientStore.Clients.Add(client);
+            ClientStore.Elements.Add(client);
 
             var routeValues = new { id = client.ClientId };
             return CreatedAtRoute("GetClient", routeValues, client);
@@ -88,7 +88,7 @@ namespace University.WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult Delete(int id) 
         {
-            var client = ClientStore.Clients
+            var client = ClientStore.Elements
                 .FirstOrDefault(c => c.ClientId == id);
 
             if (client == null)
@@ -96,7 +96,7 @@ namespace University.WebAPI.Controllers
                 return NotFound();
             }
 
-            ClientStore.Clients.Remove(client);
+            ClientStore.Elements.Remove(client);
             return NoContent();
         }
 
@@ -106,12 +106,12 @@ namespace University.WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult Update(int id, [FromBody] UpdateClientDto dto)
         {
-            if ((dto == null) || (dto.ClientId == id))
+            if ((dto == null) || (dto.ClientId != id))
             {
                 return BadRequest();
             }
 
-            var client = ClientStore.Clients.FirstOrDefault(s => s.ClientId == id);
+            var client = ClientStore.Elements.FirstOrDefault(s => s.ClientId == id);
             if (client == null) 
             { 
                 return NotFound();
