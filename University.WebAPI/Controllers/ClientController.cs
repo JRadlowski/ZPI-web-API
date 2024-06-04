@@ -23,6 +23,7 @@ namespace University.WebAPI.Controllers
                     FirstName = client.FirstName,
                     LastName = client.LastName,
                     Email = client.Email,
+                    DateOfBirth = client.DateOfBirth,
                 });
             }
             return result;
@@ -53,6 +54,7 @@ namespace University.WebAPI.Controllers
                 FirstName = client.FirstName,
                 LastName = client.LastName,
                 Email = client.Email,
+                DateOfBirth = client.DateOfBirth,
             };
 
             return Ok(result);
@@ -75,7 +77,8 @@ namespace University.WebAPI.Controllers
                 ClientId = id,
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
-                Email = dto.Email
+                Email = dto.Email,
+                DateOfBirth = dto.DateOfBirth
             };
             ClientStore.Elements.Add(client);
 

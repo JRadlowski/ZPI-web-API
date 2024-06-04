@@ -22,7 +22,10 @@ namespace University.WebAPI.Controllers
                     LoanId = loan.LoanId,
                     ClientId = loan.ClientId,
                     BookId = loan.BookId,
-                    LoanDate = loan.LoanDate
+                    LoanDate = loan.LoanDate,
+                    ReturnDate = loan.ReturnDate,
+                    DueDate = loan.DueDate,
+                    LoanStatus = loan.LoanStatus,
                 });
             }
             return result;
@@ -52,7 +55,10 @@ namespace University.WebAPI.Controllers
                 LoanId = loan.LoanId,
                 ClientId = loan.ClientId,
                 BookId = loan.BookId,
-                LoanDate = loan.LoanDate
+                LoanDate = loan.LoanDate,
+                ReturnDate = loan.ReturnDate,
+                DueDate = loan.DueDate,
+                LoanStatus = loan.LoanStatus,
             };
 
             return Ok(result);
@@ -75,7 +81,10 @@ namespace University.WebAPI.Controllers
                 LoanId = id,
                 ClientId = dto.ClientId,
                 BookId = dto.BookId,
-                LoanDate = dto.LoanDate
+                LoanDate = DateTime.UtcNow,
+                ReturnDate = dto.ReturnDate,
+                DueDate = dto.DueDate,
+                LoanStatus = LoanStatus.Active,
             };
             LoanStore.Elements.Add(loan);
 
@@ -120,6 +129,9 @@ namespace University.WebAPI.Controllers
             loan.ClientId = dto.ClientId;
             loan.BookId= dto.BookId;
             loan.LoanDate = dto.LoanDate;
+            loan.DueDate = dto.DueDate;
+            loan.ReturnDate = dto.ReturnDate;
+            loan.LoanStatus = dto.LoanStatus;
             return NoContent();
         }
     }

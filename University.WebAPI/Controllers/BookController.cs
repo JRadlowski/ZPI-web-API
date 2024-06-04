@@ -23,6 +23,9 @@ namespace University.WebAPI.Controllers
                         Title = book.Title,
                         Author = book.Author,
                         Genre = book.Genre,
+                        StatusOfBook = book.StatusOfBook,
+                        PublicationYear = book.PublicationYear,
+                        Publisher = book.Publisher
                     });
                 }
                 return result;
@@ -53,6 +56,9 @@ namespace University.WebAPI.Controllers
                     Title = book.Title,
                     Author = book.Author,
                     Genre = book.Genre,
+                    StatusOfBook = book.StatusOfBook,
+                    PublicationYear = book.PublicationYear,
+                    Publisher = book.Publisher
                 };
 
                 return Ok(result);
@@ -76,6 +82,9 @@ namespace University.WebAPI.Controllers
                     Title = dto.Title,
                     Author = dto.Author,
                     Genre = dto.Genre,
+                    StatusOfBook = dto.StatusOfBook,
+                    PublicationYear = dto.PublicationYear,
+                    Publisher = dto.Publisher
                 };
                 BookStore.Elements.Add(book);
 
@@ -120,6 +129,9 @@ namespace University.WebAPI.Controllers
                 book.Title = dto.Title;
                 book.Author = dto.Author;
                 book.Genre = dto.Genre;
+                book.Publisher = dto.Publisher;
+                book.PublicationYear = dto.PublicationYear;
+                book.StatusOfBook = dto.StatusOfBook;
                 return NoContent();
             }
     }
