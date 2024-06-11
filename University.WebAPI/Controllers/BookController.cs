@@ -9,7 +9,13 @@ namespace University.WebAPI.Controllers
     [Route("[controller]")]
     public class BookController : Controller
     {
-            [HttpGet]
+
+
+        /// <summary>
+        /// Get a list of all registered books.
+        /// </summary>
+        /// <returns>The list of books</returns>
+        [HttpGet]
             public IEnumerable<BookDto> Get()
             {
                 var books = BookStore.Elements;
@@ -30,7 +36,11 @@ namespace University.WebAPI.Controllers
                 }
                 return result;
             }
-
+            /// <summary>
+            /// Get information about book by providing ID.
+            /// </summary>
+            /// <param name="id">Book ID</param> 
+            /// <returns>Book information</returns>
             [HttpGet("{id}", Name = "GetBook")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -64,6 +74,10 @@ namespace University.WebAPI.Controllers
                 return Ok(result);
             }
 
+            /// <summary>
+            /// Create new book in library.
+            /// </summary>
+            /// <returns>Create book</returns>
             [HttpPost]
             [ProducesResponseType(StatusCodes.Status201Created)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -91,7 +105,11 @@ namespace University.WebAPI.Controllers
                 var routeValues = new { id = book.BookId };
                 return CreatedAtRoute("GetBook", routeValues, book);
             }
-
+            /// <summary>
+            /// Delete existing book from library by providing ID.
+            /// </summary>
+            /// <param name="id">Book ID</param>
+            /// <returns>Delete book</returns>
             [HttpDelete("{id}")]
             [ProducesResponseType(StatusCodes.Status204NoContent)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -108,7 +126,12 @@ namespace University.WebAPI.Controllers
                 BookStore.Elements.Remove(book);
                 return NoContent();
             }
-
+            /// <summary>
+            /// Update existing book information by providing ID.
+            /// </summary>
+            /// <param name="id">Book ID</param>
+            /// <param name="dto">Information which are to be updated</param>
+            /// <returns>Update book information</returns>
             [HttpPut("{id}")]
             [ProducesResponseType(StatusCodes.Status204NoContent)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]

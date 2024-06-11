@@ -8,7 +8,10 @@ namespace University.WebAPI.Controllers
     [ApiController]
     [Route("[controller]")]
     public class ClientController : Controller
-    {
+    {    /// <summary>
+         /// Get a list of all registered clients.
+         /// </summary>
+         /// <returns>The list of clients</returns>
         [HttpGet]
         public IEnumerable<ClientDto> Get()
         {
@@ -28,7 +31,11 @@ namespace University.WebAPI.Controllers
             }
             return result;
         }
-
+        /// <summary>
+        /// Get information about client by providing ID.
+        /// </summary>
+        /// <param name="id">Client ID</param>
+        /// <returns>Client information</returns>
         [HttpGet("{id}", Name = "GetClient")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -59,7 +66,10 @@ namespace University.WebAPI.Controllers
 
             return Ok(result);
         }
-
+        /// <summary>
+        /// Create new client in library.
+        /// </summary>
+        /// <returns>Create book</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -85,7 +95,11 @@ namespace University.WebAPI.Controllers
             var routeValues = new { id = client.ClientId };
             return CreatedAtRoute("GetClient", routeValues, client);
             }
-
+        /// <summary>
+        /// Delete existing client from library by providing ID.
+        /// </summary>
+        /// <param name="id">Client ID</param>
+        /// <returns>Delete client</returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -102,7 +116,12 @@ namespace University.WebAPI.Controllers
             ClientStore.Elements.Remove(client);
             return NoContent();
         }
-
+        /// <summary>
+        /// Update existing client information by providing ID.
+        /// </summary>
+        /// <param name="id">Client ID</param>
+        /// <param name="dto">Information which are to be updated</param>
+        /// <returns>Update client information</returns>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
