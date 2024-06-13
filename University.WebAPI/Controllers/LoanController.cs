@@ -8,7 +8,11 @@ namespace University.WebAPI.Controllers
     [ApiController]
     [Route("[controller]")]
     public class LoanController : Controller
-    {
+    {   
+        /// <summary>
+        /// Get a list of all loanes with status and dates start, return and due to. 
+        /// </summary>
+        /// <returns>The list of loans</returns>
         [HttpGet]
         public IEnumerable<LoanDto> Get()
         {
@@ -31,6 +35,11 @@ namespace University.WebAPI.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get information about loan status with dates of start loan, return and due to by providing ID.
+        /// </summary>
+        /// <param name="id">Loan ID</param>
+        /// <returns>Status of a loan</returns>
         [HttpGet("{id}", Name = "GetLoan")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -64,6 +73,10 @@ namespace University.WebAPI.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Create new loan in library.
+        /// </summary>
+        /// <returns>Create book</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -92,6 +105,11 @@ namespace University.WebAPI.Controllers
             return CreatedAtRoute("GetLoan", routeValues, loan);
         }
 
+        /// <summary>
+        /// Delete existing loan from library by providing ID.
+        /// </summary>
+        /// <param name="id">Loan ID</param>
+        /// <returns>Delete loan</returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -109,6 +127,12 @@ namespace University.WebAPI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Update existing loan information by providing ID.
+        /// </summary>
+        /// <param name="id">Loan ID</param>
+        /// <param name="dto">Information which are to be updated</param>
+        /// <returns>Update loan information</returns>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
